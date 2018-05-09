@@ -1,17 +1,16 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../containers/counter.dart';
 
-class HomePage extends StatefulWidget {
+class DetailsPage extends StatefulWidget {
   final String title;
 
-  HomePage({Key key, @required this.title}) : super(key: key);
+  DetailsPage({Key key, @required this.title}) : super(key: key);
 
   @override
-  HomePageState createState() => new HomePageState();
+  DetailsPageState createState() => new DetailsPageState();
 }
 
-class HomePageState extends State<HomePage> with WidgetsBindingObserver {
+class DetailsPageState extends State<DetailsPage> with WidgetsBindingObserver {
   AppLifecycleState _lastLifecycleState;
 
   @override
@@ -40,16 +39,18 @@ class HomePageState extends State<HomePage> with WidgetsBindingObserver {
         title: new Text(widget.title),
         elevation: 0.0,
       ),
-      body: new Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          new CounterContainer(),
-          new FlatButton(
-            child: new Text("View details"),
-            onPressed: () => Navigator.of(context).pushNamed('/details'),
-            color: Theme.of(context).primaryColorLight,
-          )
-        ],
+      body: new Center(
+        child: new Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            new Text("Flutter example app using Redux for Dart."),
+            new FlatButton(
+              child: new Text("View home"),
+              onPressed: () => Navigator.of(context).pushNamed('/'),
+              color: Theme.of(context).primaryColorLight,
+            )
+          ],
+        ),
       ),
     );
   }

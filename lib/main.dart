@@ -7,7 +7,7 @@ import 'app.dart';
 
 void main() {
   final store = new Store<AppState>(appStateReducer,
-      initialState: new AppState(new Counter()));
+      initialState: new AppState(counter: new Counter()));
 
   runApp(new MyApp(store: store));
 }

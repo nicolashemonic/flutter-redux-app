@@ -15,7 +15,7 @@ import '../lib/models/counter.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     final store = new Store<AppState>(appStateReducer,
-        initialState: new AppState(new Counter()));
+        initialState: new AppState(counter: new Counter()));
 
     // Build our app and trigger a frame.
     await tester.pumpWidget(new MyApp(store: store));

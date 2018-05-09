@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 import 'models/state.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'containers/home.dart';
+import 'pages/home.dart';
+import 'pages/details.dart';
 
 class MyApp extends StatelessWidget {
   final Store<AppState> store;
@@ -18,7 +19,11 @@ class MyApp extends StatelessWidget {
         theme: new ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: new HomeContainer(title: 'Flutter Demo Home Page'),
+        routes: <String, WidgetBuilder>{
+          '/': (BuildContext context) => new HomePage(title: "Home"),
+          '/details': (BuildContext context) =>
+              new DetailsPage(title: "Details")
+        },
       ),
     );
   }
