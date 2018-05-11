@@ -1,9 +1,10 @@
+import 'package:flutter/foundation.dart';
+
+typedef void IncrementCountFunction();
+
 class Counter {
-  final int value;
+  final String count;
+  final IncrementCountFunction incrementCount;
 
-  const Counter({this.value = 0});
-
-  Counter copyWith({int value}) {
-    return new Counter(value: value ?? this.value);
-  }
+  const Counter({@required this.count, @required this.incrementCount});
 }

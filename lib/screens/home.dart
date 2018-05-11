@@ -2,35 +2,24 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../containers/counter.dart';
 
-class HomePage extends StatefulWidget {
+class Home extends StatefulWidget {
   final String title;
 
-  HomePage({Key key, @required this.title}) : super(key: key);
+  Home({Key key, @required this.title}) : super(key: key);
 
   @override
-  HomePageState createState() => new HomePageState();
+  HomeState createState() => new HomeState();
 }
 
-class HomePageState extends State<HomePage> with WidgetsBindingObserver {
-  AppLifecycleState _lastLifecycleState;
-
+class HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addObserver(this);
   }
 
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
-  }
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    setState(() {
-      _lastLifecycleState = state;
-    });
   }
 
   @override
@@ -43,7 +32,7 @@ class HomePageState extends State<HomePage> with WidgetsBindingObserver {
       body: new Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          new CounterContainer(),
+          new Counter(),
           new FlatButton(
             child: new Text("View details"),
             onPressed: () => Navigator.of(context).pushNamed('/details'),

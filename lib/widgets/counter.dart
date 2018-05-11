@@ -1,11 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../containers/counter.dart';
+import '../models/counter.dart' as models;
 
 class Counter extends StatelessWidget {
-  final CounterViewModel model;
+  final models.Counter model;
 
-  Counter({Key key, @required this.model}) : super(key: key);
+  const Counter({Key key, @required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +16,7 @@ class Counter extends StatelessWidget {
           'You have pushed ${model.count} times!',
         ),
         new FlatButton(
+          key: new Key('counter_button'),
           child: new Text("Increment"),
           onPressed: model.incrementCount,
           color: Theme.of(context).primaryColorLight,

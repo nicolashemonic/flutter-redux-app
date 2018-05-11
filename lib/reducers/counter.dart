@@ -1,7 +1,7 @@
-import "../models/counter.dart";
+import "../models/states/counter.dart";
 import "../actions/counter.dart";
 
-Counter counterReducer(Counter counter, action) {
+CounterState counterReducer(CounterState counter, action) {
   if (action is IncrementCounter) {
     return counter.copyWith(value: counter.value + 1);
   }

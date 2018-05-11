@@ -1,29 +1,21 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../models/state.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import '../models/states/app.dart';
 import '../actions/counter.dart';
-import '../components/counter.dart';
+import '../models/counter.dart' as models;
+import '../widgets/counter.dart' as widgets;
 
-typedef void IncrementCountFunction();
-
-class CounterViewModel {
-  final String count;
-  final IncrementCountFunction incrementCount;
-
-  const CounterViewModel({@required this.count, @required this.incrementCount});
-}
-
-class CounterContainer extends StatelessWidget {
+class Counter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new StoreConnector<AppState, CounterViewModel>(
-      converter: (store) => new CounterViewModel(
-          count: store.state.counter.value.toString(),
-          incrementCount: () => store.dispatch(IncrementCounter())),
-      builder: (context, model) {
-        return new Counter(model: model);
-      },
+    return new StoreConnector<AppState, models.Counter>(
+      converter: (store) => new models.Counter(
+            count: store.state.counter.value.toString(),
+            incrementCount: () => store.dispatch(
+                  IncrementCounter(),
+                ),
+          ),
+      builder: (context, model) => new widgets.Counter(model: model),
     );
   }
 }
