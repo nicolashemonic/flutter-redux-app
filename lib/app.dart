@@ -12,16 +12,13 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new StoreProvider<AppState>(
+    return StoreProvider<AppState>(
       store: store,
-      child: new MaterialApp(
+      child: MaterialApp(
         title: 'Flutter Redux App',
-        theme: new ThemeData(
-          primarySwatch: Colors.blue,
-        ),
         routes: <String, WidgetBuilder>{
-          '/': (BuildContext context) => new Home(title: "Home"),
-          '/details': (BuildContext context) => new Details(title: "Details")
+          '/': (BuildContext context) => Home(title: "Home"),
+          '/details': (BuildContext context) => Details(title: "Details")
         },
       ),
     );

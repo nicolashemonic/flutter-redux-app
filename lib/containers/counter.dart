@@ -8,14 +8,14 @@ import '../widgets/counter.dart' as widgets;
 class Counter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new StoreConnector<AppState, models.Counter>(
-      converter: (store) => new models.Counter(
+    return StoreConnector<AppState, models.Counter>(
+      converter: (store) => models.Counter(
             count: store.state.counter.value.toString(),
             incrementCount: () => store.dispatch(
                   IncrementCounter(),
                 ),
           ),
-      builder: (context, model) => new widgets.Counter(model: model),
+      builder: (context, model) => widgets.Counter(model: model),
     );
   }
 }

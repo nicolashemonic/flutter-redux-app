@@ -7,7 +7,7 @@ class Details extends StatefulWidget {
   Details({Key key, @required this.title}) : super(key: key);
 
   @override
-  DetailsState createState() => new DetailsState();
+  DetailsState createState() => DetailsState();
 }
 
 class DetailsState extends State<Details> {
@@ -23,20 +23,23 @@ class DetailsState extends State<Details> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(widget.title),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
         elevation: 0.0,
       ),
-      body: new Center(
-        child: new Column(
+      body: Center(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            new Text("Flutter demo app using Redux for Dart."),
-            new FlatButton(
-              child: new Text("View home"),
+            Text("Flutter demo app using Redux for Dart."),
+            FlatButton(
+              child: Text(
+                "View home",
+                style: TextStyle(color: Colors.white),
+              ),
               onPressed: () => Navigator.of(context).pushNamed('/'),
-              color: Theme.of(context).primaryColorLight,
+              color: Colors.blue,
             )
           ],
         ),

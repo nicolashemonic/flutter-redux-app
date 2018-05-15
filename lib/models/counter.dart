@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 
 typedef void IncrementCountFunction();
 
+@immutable
 class Counter {
   final String count;
   final IncrementCountFunction incrementCount;

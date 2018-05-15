@@ -9,18 +9,20 @@ class Counter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        new Text(
+        Text(
           'You have pushed ${model.count} times!',
         ),
-        new FlatButton(
-          key: new Key('counter_button'),
-          child: new Text("Increment"),
-          onPressed: model.incrementCount,
-          color: Theme.of(context).primaryColorLight,
-        )
+        FlatButton(
+            key: Key('counter_button'),
+            child: Text(
+              "Increment",
+              style: TextStyle(color: Colors.white),
+            ),
+            onPressed: model.incrementCount,
+            color: Colors.blue),
       ],
     );
   }

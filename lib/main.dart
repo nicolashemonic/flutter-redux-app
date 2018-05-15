@@ -9,5 +9,5 @@ void main() {
   final store = new Store<AppState>(appReducer,
       initialState: new AppState(counter: new CounterState()));
 
-  runApp(new App(store: store));
+  runApp(App(store: store));
 }

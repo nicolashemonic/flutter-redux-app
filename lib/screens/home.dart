@@ -8,7 +8,7 @@ class Home extends StatefulWidget {
   Home({Key key, @required this.title}) : super(key: key);
 
   @override
-  HomeState createState() => new HomeState();
+  HomeState createState() => HomeState();
 }
 
 class HomeState extends State<Home> {
@@ -24,19 +24,22 @@ class HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(widget.title),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
         elevation: 0.0,
       ),
-      body: new Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          new Counter(),
-          new FlatButton(
-            child: new Text("View details"),
+          Counter(),
+          FlatButton(
+            child: Text(
+              "View details",
+              style: TextStyle(color: Colors.white),
+            ),
             onPressed: () => Navigator.of(context).pushNamed('/details'),
-            color: Theme.of(context).primaryColorLight,
+            color: Colors.blue,
           )
         ],
       ),
